@@ -1,0 +1,209 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+}
+
+#app {
+    width: 80%;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+button {
+    margin: 5px;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Form field styling */
+.form-field {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Buttons inside form fields */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Styling for text input */
+input[type="text"] {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Align radio and checkbox options properly */
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* General container styling */
+#app, #form-preview-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form header */
+h1, h2, h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Form list styling */
+#form-list {
+    margin-top: 20px;
+}
+
+/* Form buttons */
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Form field container */
+.form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Input styling */
+input[type="text"], select {
+    padding: 8px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Radio & Checkbox styling */
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Inline radio and checkbox options */
+.radio-group, .checkbox-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/* Action buttons (Edit, Delete) */
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Form preview section */
+#form-preview-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    display: none; /* Initially hidden */
+}
+
+/* Preview form styling */
+#form-preview {
+    padding: 15px;
+    background: #f4f4f4;
+    border-radius: 5px;
+}
+.form-field {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
+button {
+    padding: 8px 12px;
+    margin: 5px;
+    background: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+button:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+/* Preview section */
+#form-preview-container {
+    padding: 15px;
+    background: #fff;
+    border: 2px solid #007bff;
+    border-radius: 5px;
+    display: none;
+}
