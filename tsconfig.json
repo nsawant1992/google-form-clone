@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Use ES6 features
+    "module": "ES6", // Use ES6 module system
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
+    "rootDir": "./src", // Source TypeScript files
+    "outDir": "./dist", // Output compiled JavaScript files
+    "strict": true, // Enable strict mode
+    "esModuleInterop": true, // Allow compatibility with CommonJS
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true, // Prevent implicit 'any' type
+    "skipLibCheck": true, // Skip type checks for dependencies
+    "resolveJsonModule": true, // Allow importing JSON files
+    "moduleResolution": "node",
+    "incremental": false
+  },
+  "include": [
+    "src/**/*"
+  ], // Ensure all files inside src/ are compiled
+  "exclude": [
+    "node_modules",
+    "dist"
+  ] // Exclude unnecessary files
+}
