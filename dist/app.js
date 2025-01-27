@@ -61,16 +61,22 @@ class GoogleFormApp {
             alert("No responses found for this form.");
             return;
         }
-        console.log(`📋 Responses for Form ID: ${formId}`);
-        // Convert responses into a proper table format
+        console.log(`Responses for Form ID: ${formId}`);
+        //  Extract field names from the first response
+        const fieldNames = Object.keys(formResponses[0].responses);
+        //  Convert responses into a structured table format
         const tableData = formResponses.map((response, index) => {
-            return {
-                '#': index + 1, // Serial number
-                ...response.responses, // Spread all field responses
-                SubmittedAt: new Date().toLocaleString(), // Timestamp for submission
-            };
+            const formattedResponse = { "#": index + 1 };
+            //  Map response field values correctly using field labels
+            fieldNames.forEach((field) => {
+                formattedResponse[field] = response.responses[field] || "-"; // Use "-" if empty
+            });
+            formattedResponse["SubmittedAt"] = new Date().toLocaleString(); // Add timestamp
+            return formattedResponse;
         });
+        //  Log the responses in tabular format
         console.table(tableData);
+        //  Inform the user that responses are available in the console
         alert("Responses are displayed in the console.\nOpen the browser console (F12 -> Console) to view them in table format.");
     }
     viewForm(formId) {
