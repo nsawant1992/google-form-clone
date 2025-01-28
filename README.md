@@ -23,12 +23,8 @@ npm run build
 📌 This compiles TypeScript (src/) into JavaScript (dist/)
 
 4️⃣ Start the Local Server  
-npm start  
-
-
-5️⃣ Open in Browser  
-http://localhost:8000/dist/index.html  
-
+npm run start  
+ 
 🛠 Deployment
 This project is deployed using Vercel.
 
