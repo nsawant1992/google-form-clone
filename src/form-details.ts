@@ -67,7 +67,7 @@ function renderFormForSubmission(form: FormStructure): void {
         formElement.appendChild(fieldWrapper);
     });
 
-    // ✅ Add Submit button
+    //  Add Submit button
     const submitButton = document.createElement('button');
     submitButton.textContent = 'Submit';
     submitButton.type = 'submit';
@@ -84,10 +84,31 @@ function renderFormForSubmission(form: FormStructure): void {
 
 // Function to handle form submission
 function submitForm(formId: string, formData: FormData): void {
+    // Retrieve form structure from localStorage to access field labels
+    const forms: FormStructure[] = LocalStorageHelper.getData<FormStructure[]>('forms') || [];
+    const formStructure = forms.find(form => form.id === formId);
+
+    if (!formStructure) {
+        alert("Form structure not found!");
+        return;
+    }
+
     const responses: { [key: string]: string | string[] } = {};
 
     formData.forEach((value, key) => {
-        responses[key] = typeof value === "string" ? value : "";
+        // Find the corresponding field by ID
+        const field = formStructure.fields.find(f => f.id === key);
+        const label = field ? field.label : key; // Use field label if available
+
+        // Handle multiple checkbox selections
+        if (field?.type === 'checkbox') {
+            if (!responses[label]) {
+                responses[label] = [];
+            }
+            (responses[label] as string[]).push(value.toString());
+        } else {
+            responses[label] = value.toString();
+        }
     });
 
     const newResponse = { formId, responses };

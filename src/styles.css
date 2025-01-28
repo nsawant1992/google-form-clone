@@ -17,15 +17,6 @@ body {
     padding: 20px;
 }
 
-button {
-    margin: 5px;
-    padding: 10px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
 
 button:hover {
     background: #0056b3;
@@ -206,4 +197,138 @@ button:disabled {
     border: 2px solid #007bff;
     border-radius: 5px;
     display: none;
+}
+
+/* Center the form container */
+.form-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Title Styling */
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Form List Section */
+.form-list {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Each Form Item */
+.form-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #e9ecef;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Form Action Buttons */
+.form-actions {
+    display: flex;
+    gap: 8px;
+}
+
+/* Buttons Styling */
+button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.create-form-btn {
+    background: #007bff;
+    color: white;
+}
+
+.view-btn {
+    background: #28a745;
+    color: white;
+}
+
+.preview-btn {
+    background: #17a2b8;
+    color: white;
+}
+
+.response-btn {
+    background: #ffc107;
+    color: black;
+}
+
+.delete-btn {
+    background: #dc3545;
+    color: white;
+}
+
+/* Center and structure main container */
+.container {
+    max-width: 700px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styling */
+section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+/* Buttons */
+button {
+    padding: 10px 15px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.create-form-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+.create-form-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Form List Styling */
+#form-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Form Preview */
+#form-preview-container {
+    border: 2px solid #007bff;
+    background: #e9ecef;
+    padding: 15px;
 }

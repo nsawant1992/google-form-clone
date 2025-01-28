@@ -23,8 +23,7 @@ class GoogleFormApp {
         formListContainer.innerHTML = '';
         this.forms.forEach((form) => {
             const formElement = document.createElement('div');
-            // Disable preview button if no fields exist
-            const isDisabled = form.fields.length === 0 ? 'disabled' : '';
+            formElement.className = 'form-item';
             formElement.innerHTML = `
                 <h3>${form.name}</h3>
                 <button onclick="window.app.viewForm('${form.id}')">View</button>
@@ -56,27 +55,28 @@ class GoogleFormApp {
     }
     viewResponses(formId) {
         const storedResponses = LocalStorageHelper.getData('responses') || [];
+        const forms = LocalStorageHelper.getData('forms') || [];
         const formResponses = storedResponses.filter(response => response.formId === formId);
-        if (formResponses.length === 0) {
+        const formStructure = forms.find(form => form.id === formId);
+        if (formResponses.length === 0 || !formStructure) {
             alert("No responses found for this form.");
             return;
         }
-        console.log(`Responses for Form ID: ${formId}`);
-        //  Extract field names from the first response
-        const fieldNames = Object.keys(formResponses[0].responses);
-        //  Convert responses into a structured table format
+        console.log(`Responses for Form: ${formStructure.name}`);
+        // Extract field labels instead of IDs
+        const fieldLabels = formStructure.fields.map(field => field.label);
+        // Convert responses into a structured table format
         const tableData = formResponses.map((response, index) => {
-            const formattedResponse = { "#": index + 1 };
-            //  Map response field values correctly using field labels
-            fieldNames.forEach((field) => {
-                formattedResponse[field] = response.responses[field] || "-"; // Use "-" if empty
+            const formattedResponse = {};
+            formStructure.fields.forEach((field) => {
+                const fieldLabel = field.label;
+                formattedResponse[fieldLabel] = response.responses[fieldLabel] || "-"; // Use "-" if empty
             });
-            formattedResponse["SubmittedAt"] = new Date().toLocaleString(); // Add timestamp
             return formattedResponse;
         });
-        //  Log the responses in tabular format
+        // Log the responses in tabular format
         console.table(tableData);
-        //  Inform the user that responses are available in the console
+        // Inform the user that responses are available in the console
         alert("Responses are displayed in the console.\nOpen the browser console (F12 -> Console) to view them in table format.");
     }
     viewForm(formId) {
@@ -182,7 +182,7 @@ class GoogleFormApp {
             }
         }
         const newField = {
-            id: new Date().toISOString(),
+            id: label,
             type,
             label,
             options: type === 'radio' || type === 'checkbox' ? prompt('Enter options (comma-separated)')?.split(',').map(opt => opt.trim()).filter(opt => opt) : undefined,
