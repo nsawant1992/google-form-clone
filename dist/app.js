@@ -21,6 +21,11 @@ class GoogleFormApp {
         if (!formListContainer)
             return;
         formListContainer.innerHTML = '';
+        if (this.forms.length === 0) {
+            // Show "No Forms Created" message when no forms exist
+            formListContainer.innerHTML = '<p class="no-forms">No forms created.</p>';
+            return;
+        }
         this.forms.forEach((form) => {
             const formElement = document.createElement('div');
             formElement.className = 'form-item';
@@ -185,7 +190,7 @@ class GoogleFormApp {
             id: label,
             type,
             label,
-            options: type === 'radio' || type === 'checkbox' ? prompt('Enter options (comma-separated)')?.split(',').map(opt => opt.trim()).filter(opt => opt) : undefined,
+            options
         };
         this.activeForm.fields.push(newField);
         this.saveForms();

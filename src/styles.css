@@ -332,3 +332,29 @@ button {
     background: #e9ecef;
     padding: 15px;
 }
+
+
+/* Individual Form Item */
+.form-item {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+/* No Forms Message */
+.no-forms {
+    font-size: 16px;
+    color: #666;
+    margin-top: 10px;
+}
